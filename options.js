@@ -11,25 +11,33 @@ function msg(title, message){
 }
 
 var demoSettings =  {
-  "Deep Auto Fill Chrome Demo" : {
-    "randomLocale" : "de",
-    "fields" : [
-      {
-        "selector" : "#textbox2",
-        "random": "A bunch of random values: {{name.lastName}}, {{name.firstName}} {{name.suffix}}"
-      },
-      {
-        "selector" : "input[name=textbox1]",
-        "random": "A bunch of another random values: {{internet.email}}, {{helpers.createCard}} {{address.secondaryAddress}}",
-        "static" : "A static value"
-      },
-      {
-        "selector" : "#textbox4",
-        "static" : "A static value"
-      } 
-    ]
-  }
+	"SFL-OL-ALL-BI": {
+		"fields": [
+			{
+				"selector": "#appfrmmilitary",
+				"static": "N"
+			},
+			{
+				"selector": "#appfrmstateResidence",
+				"static": "WI"
+			},
+			{
+				"selector": "#appfrmfirstname",
+				"static": "TestFirst"
+			},
+			{
+				"selector": "#appfrmlastname",
+				"static": "TestLast"
+			}
+		]
+	}
 }
+
+// 			{
+// 				"selector": "#appfrmstateResidence",
+// 				"random": "A bunch of another random values: {{internet.email}}, {{helpers.createCard}} {{address.secondaryAddress}}",
+// 				"static": "A static value"
+// 			},
 
 
 jQuery(function($){
@@ -40,7 +48,7 @@ jQuery(function($){
   editor.getSession().setValue(text);
   editor.commands.addCommand({
       name: 'save_settings',
-      bindKey: {win: "Ctrl-S", "mac": "Cmd-S"},
+      bindKey: {win: "Ctrl-S", "mac": "Cmd-Shift-S"},
       exec: function(editor) {
         try {
           var data = editor.session.getValue();
